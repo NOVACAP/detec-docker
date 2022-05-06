@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\AdministrativeRegion;
 
 class AdministrativeRegionController extends Controller
 {
+    //verify if user logged in
+    public function __construct()
+    {
+        $this->middleware('auth');
+    } 
+    
     /**
      * Display a listing of the resource.
      *
@@ -13,8 +20,10 @@ class AdministrativeRegionController extends Controller
      */
     public function index()
     {
-        //
+        $administrativeRegions = AdministrativeRegion::all();
+        return view('administrativeRegions.index' , compact ('administrativeRegions'));
     }
+    
 
     /**
      * Show the form for creating a new resource.

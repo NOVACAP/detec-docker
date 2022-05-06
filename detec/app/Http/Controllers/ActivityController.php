@@ -1,11 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Activity;
 
 use Illuminate\Http\Request;
 
 class ActivityController extends Controller
 {
+
+    //verify if user logged in
+    public function __construct()
+    {
+        $this->middleware('auth');
+    } 
+    
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +21,8 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        //
+        $activities = Activity::all();
+        return view('activities.index' , compact ('activities'));
     }
 
     /**

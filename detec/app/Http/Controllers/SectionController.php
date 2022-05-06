@@ -3,17 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Interested;
+use App\Models\Section;
 
-class InterestedController extends Controller
+class SectionController extends Controller
 {
-
     //verify if user logged in
     public function __construct()
     {
         $this->middleware('auth');
     } 
-
     
     /**
      * Display a listing of the resource.
@@ -22,8 +20,8 @@ class InterestedController extends Controller
      */
     public function index()
     {
-        $interesteds = Interested::all();
-        return view('interesteds.index' , compact ('interesteds'));
+        $sections = Section::all();
+        return view('sections.index' , compact ('sections'));
     }
 
     /**

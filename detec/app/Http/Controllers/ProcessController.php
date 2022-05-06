@@ -3,17 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Interested;
+use App\Models\Process;
 
-class InterestedController extends Controller
+class ProcessController extends Controller
 {
-
     //verify if user logged in
     public function __construct()
     {
         $this->middleware('auth');
     } 
-
     
     /**
      * Display a listing of the resource.
@@ -22,8 +20,8 @@ class InterestedController extends Controller
      */
     public function index()
     {
-        $interesteds = Interested::all();
-        return view('interesteds.index' , compact ('interesteds'));
+        $processes = Process::all();
+        return view('processes.index' , compact ('processes'));
     }
 
     /**
@@ -33,7 +31,7 @@ class InterestedController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -44,7 +42,7 @@ class InterestedController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

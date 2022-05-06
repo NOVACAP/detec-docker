@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\TechniqueArea;
 
 class TechniqueAreaController extends Controller
 {
+    //verify if user logged in
+    public function __construct()
+    {
+        $this->middleware('auth');
+    } 
+    
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,8 @@ class TechniqueAreaController extends Controller
      */
     public function index()
     {
-        //
+        $techniqueAreas = TechniqueArea::all();
+        return view('techniqueAreas.index' , compact ('techniqueAreas'));
     }
 
     /**

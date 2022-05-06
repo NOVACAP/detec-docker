@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ThematicArea;
 
 class ThematicAreaController extends Controller
 {
+
+    //verify if user logged in
+    public function __construct()
+    {
+        $this->middleware('auth');
+    } 
+    
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +21,8 @@ class ThematicAreaController extends Controller
      */
     public function index()
     {
-        //
+        $thematicAreas = ThematicArea::all();
+        return view('thematicAreas.index' , compact ('thematicAreas'));
     }
 
     /**
