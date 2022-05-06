@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('date_distribution_demand')->nullable();
             $table->date('delivery_demand')->nullable();
             $table->string('address_demand', 100);
-
+            $table->string('description', 250)->nullable();
             //foreign
             $table->foreignId('activity_id')->constrained('activities')->onDelete('cascade');
             $table->foreignId('interested_id')->constrained('interesteds')->onDelete('cascade');
